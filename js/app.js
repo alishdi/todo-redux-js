@@ -1,6 +1,7 @@
 import { addTodo, removeTodo, doTodo, getAllTodos } from "../Redux/actions.js"
 import { addToDoAction, removeTodoAction, doTodoAction, getAllTodosAction } from "../Redux/actionCreators.js";
 
+
 window.removeToDoHandler = removeToDoHandler
 window.doTodoHandler = doTodoHandler
 const inputElem = document.querySelector('.todo-input');
@@ -48,7 +49,8 @@ function todolistReducer(state = [], action) {
 }
 
 // Create Store
-const store = Redux.createStore(todolistReducer)
+const store = createStore(todolistReducer)
+console.log(store);
 filteTodo.addEventListener('change', event => {
     store.dispatch(getAllTodosAction())
     let todos = store.getState()
